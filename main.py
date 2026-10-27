@@ -1,0 +1,30 @@
+
+"""
+command-line demo of the hr policy assistant
+run with : python main.py
+"""
+from hr_assistant.pipeline import ask, build_hr_assistant
+
+def main():
+    print("building the hr policy assistant...")
+    agent = build_hr_assistant()
+    print("Assistant ready!\n")
+
+    demo_questions = [
+        "How many paid annual leave day do i get ?",
+        "What is the notice period during probation ?",
+        "can i work from home every day ?",
+    ]
+
+    for question in demo_questions:
+        print("="*60)
+        print("QUESTION:", question)
+        print("-"*60)
+
+        answer = ask(agent, question)
+        print("ANSWER:", answer)
+        print()
+
+
+if __name__ == "__main__":
+    main()
